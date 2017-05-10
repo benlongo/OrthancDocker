@@ -1,11 +1,34 @@
 FROM ubuntu:14.04
 
 MAINTAINER Ben Longo <benlongo9807@gmail.com>
-LABEL Description="Base environment to build Orthanc"
+LABEL Description="Orthanc with DICOMweb, Whole Slide Imaging and webviewer."
 
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install wget nano build-essential unzip cmake mercurial uuid-dev libcurl4-openssl-dev liblua5.1-0-dev libgtest-dev libpng-dev libsqlite3-dev libssl-dev libjpeg-dev zlib1g-dev libdcmtk2-dev libboost-all-dev libwrap0-dev libcharls-dev libjsoncpp-dev libpugixml-dev && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libgdcm2-dev libjpeg-dev libtiff-dev libopenjpeg-dev libopenslide-dev && rm -rf /var/lib/apt/lists/*
+# Orthanc core deps - sourced from https://bitbucket.org/sjodogne/orthanc/src/default/LinuxCompilation.txt
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential \
+cmake \
+libboost-all-dev \
+libcharls-dev \
+libcurl4-openssl-dev \
+libdcmtk2-dev \
+libgtest-dev \
+libjpeg-dev \
+libjsoncpp-dev \
+liblua5.1-0-dev \
+libpng-dev \
+libpugixml-dev \
+libsqlite3-dev \
+libssl-dev \
+libwrap0-dev \
+mercurial \
+unzip \
+uuid-dev \
+zlib1g-dev
+
+
+
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 ADD ./build.sh /root/build.sh
