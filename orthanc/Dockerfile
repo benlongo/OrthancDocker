@@ -35,7 +35,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ADD ./build.sh /root/build.sh
 ADD ./config.json /root/config.json
-RUN bash /root/build.sh "default" "/root/config.json"
+RUN bash /root/build.sh "default"
 
 ADD ./build-webviewer.sh /root/build-webviewer.sh
 RUN bash /root/build-webviewer.sh "default"
@@ -52,5 +52,5 @@ EXPOSE 4242
 EXPOSE 8042
 
 
-ENTRYPOINT [ "Orthanc" ]
+ENTRYPOINT [ "Orthanc", "/root/config.json"]
 CMD [ "/etc/orthanc/" ]

@@ -35,7 +35,3 @@ make install
 # Remove the build directory to recover space
 cd /root/
 rm -rf /root/orthanc
-
-# Auto-generate, then patch the configuration file
-# http://book.orthanc-server.com/users/configuration.html
-Orthanc --config=$2
