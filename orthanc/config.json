@@ -1,13 +1,15 @@
 {
-  "Name" : "MyOrthanc",
-  "StorageDirectory" : "OrthancStorage",
-  "IndexDirectory" : "OrthancStorage",
+  "Name" : "Orthanc in Docker",
+  "StorageDirectory" : "/var/lib/orthanc/db",
+  "IndexDirectory" : "/var/lib/orthanc/db",
   "StorageCompression" : false,
   "MaximumStorageSize" : 0,
   "MaximumPatientCount" : 0,
   "LuaScripts" : [
   ],
   "Plugins" : [
+    "/usr/share/orthanc/plugins",
+    "/usr/local/share/orthanc/plugins"
   ],
 
   "HttpServerEnabled" : true,
@@ -34,12 +36,12 @@
 
   "DicomScpTimeout" : 30,
 
-  "RemoteAccessAllowed" : false,
+  "RemoteAccessAllowed" : true,
   "SslEnabled" : false,
   "SslCertificate" : "certificate.pem",
-  "AuthenticationEnabled" : false,
+  "AuthenticationEnabled" : true,
   "RegisteredUsers" : {
-
+    "orthanc": "orthanc"
   },
   "DicomModalities" : {
   },

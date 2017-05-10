@@ -26,13 +26,12 @@ uuid-dev \
 zlib1g-dev
 
 
-
-
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 ADD ./build.sh /root/build.sh
-RUN bash /root/build.sh "default"
+ADD ./config.json /root/config.json
+RUN bash /root/build.sh "default" "/root/config.json"
 
 ADD ./build-webviewer.sh /root/build-webviewer.sh
 RUN bash /root/build-webviewer.sh "default"
