@@ -5,25 +5,29 @@ LABEL Description="Orthanc with DICOMweb, Whole Slide Imaging and webviewer."
 
 RUN apt-get update
 # Orthanc core deps - sourced from https://bitbucket.org/sjodogne/orthanc/src/default/LinuxCompilation.txt
+# libgdcm2-dev was not included in the above link.
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential \
-cmake \
-libboost-all-dev \
-libcharls-dev \
-libcurl4-openssl-dev \
-libdcmtk2-dev \
-libgtest-dev \
-libjpeg-dev \
-libjsoncpp-dev \
-liblua5.1-0-dev \
-libpng-dev \
-libpugixml-dev \
-libsqlite3-dev \
-libssl-dev \
-libwrap0-dev \
-mercurial \
-unzip \
-uuid-dev \
-zlib1g-dev
+  cmake \
+  libboost-all-dev \
+  libcharls-dev \
+  libcurl4-openssl-dev \
+  libdcmtk2-dev \
+  libgdcm2-dev \
+  libgtest-dev \
+  libjpeg-dev \
+  libjsoncpp-dev \
+  liblua5.1-0-dev \
+  libopenjpeg-dev \
+  libpng-dev \
+  libpugixml-dev \
+  libsqlite3-dev \
+  libssl-dev \
+  libtiff-dev \
+  libwrap0-dev \
+  mercurial \
+  unzip \
+  uuid-dev \
+  zlib1g-dev
 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
