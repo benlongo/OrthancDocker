@@ -52,5 +52,5 @@ EXPOSE 4242
 EXPOSE 8042
 
 
-ENTRYPOINT [ "Orthanc", "/root/config.json"]
-CMD [ "/etc/orthanc/" ]
+ENTRYPOINT [ "Orthanc" ]
+CMD [ "/root/config.json" ]
