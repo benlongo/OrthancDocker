@@ -1,4 +1,5 @@
 # Orthanc for Docker
-[Docker Hub](https://www.docker.com/) repository to build [Orthanc](http://www.orthanc-server.com/) and its official plugins. Orthanc is a lightweight, RESTful Vendor Neutral Archive for medical imaging.
+Run the image with `docker run -P` to expose the ports. In order to see which ports were
+mapped run `docker port <container_name>`.
 
-Full documentation is available in the [Orthanc Book](http://book.orthanc-server.com/users/docker.html).
+[Orthanc docs](http://book.orthanc-server.com/users/docker.html).
